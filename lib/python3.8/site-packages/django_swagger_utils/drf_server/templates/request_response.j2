@@ -1,0 +1,39 @@
+from django_swagger_utils.drf_server.default.parser_mapping import PARSER_MAPPING
+from django_swagger_utils.drf_server.default.renderer_mapping import RENDERER_MAPPING
+
+from django.conf import settings
+django_swagger_utils_settings = settings.SWAGGER_UTILS
+defaults = django_swagger_utils_settings["DEFAULTS"]
+
+
+REQUEST_RESPONSE_DECORATOR = {
+    'METHOD': 'POST',
+    'REQUEST_WRAPPING_REQUIRED': defaults.get("REQUEST_WRAPPING_REQUIRED", True),
+    'REQUEST_ENCRYPTION_REQUIRED': defaults.get("REQUEST_ENCRYPTION_REQUIRED", False),
+    'REQUEST_IS_PARTIAL': False,
+    'REQUEST_SERIALIZER_MANY_ITEMS': False,
+    'RESPONSE_SERIALIZER_MANY_ITEMS': False,
+    'PARSER_CLASSES': [
+        {% for consume in consumes %}PARSER_MAPPING["{{consume}}"]{% if not loop.last %},
+        {% endif %}{% endfor %}
+    ],
+    'RENDERER_CLASSES': [
+        {% for produce in produces %}RENDERER_MAPPING["{{produce}}"]{% if not loop.last %},
+        {% endif %}{% endfor %}
+    ],
+    "SECURITY": {
+{% for decorator in securities %}{% for security_name, scopes in decorator.items() %}
+        "{{security_name}}" : [
+            {% for scope in scopes %}"{{ scope }}"{% if not loop.last %}, {% endif %}
+            {% endfor %}
+        ]{% endfor %}{% if not loop.last %},{% endif %}{% endfor %}
+    },
+    'REQUEST_SERIALIZER': None,
+    'RESPONSE': {
+        '200': {
+            'CONTENT_TYPE': "application/json",
+            'RESPONSE_SERIALIZER': None,
+            'HEADERS_SERIALIZER': None,
+        }
+    }
+}

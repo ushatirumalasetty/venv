@@ -1,0 +1,6 @@
+from rest_framework import serializers
+{% if imports_str %}{{ imports_str }}{% endif %}
+
+class {{serializer_camel_case_name}}Serializer(serializers.ListSerializer):
+    child = {{field_string}}
+

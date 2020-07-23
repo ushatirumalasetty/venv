@@ -1,0 +1,1 @@
+J2_APP_NAME_PREFIX = "_j2"

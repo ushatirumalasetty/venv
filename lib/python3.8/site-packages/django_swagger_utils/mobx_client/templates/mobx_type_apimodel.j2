@@ -1,0 +1,14 @@
+/*
+ * @flow
+ */
+{% if imports|length > 0 %}{{imports}}{%endif%}
+
+{% for type_file in type_files %}
+export type {{type_file.class_name}}={
+    {% for each_field,type, is_required in type_file.fields %}{{each_field}}{%if not is_required%}?{%endif%}:{{type}}{% if not loop.last %},
+    {% endif %}{% endfor %}
+};
+{% endfor %}
+{% for enum in enums %}
+export type {{enum['property_name']}}= {% for value in enum['values']%} "{{value}}"{% if not loop.last %} | {%endif%}{%endfor%}
+{% endfor %}

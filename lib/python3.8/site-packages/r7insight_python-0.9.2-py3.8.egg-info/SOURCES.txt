@@ -1,0 +1,13 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+r7insight/__init__.py
+r7insight/helpers.py
+r7insight/metrics.py
+r7insight/utils.py
+r7insight_python.egg-info/PKG-INFO
+r7insight_python.egg-info/SOURCES.txt
+r7insight_python.egg-info/dependency_links.txt
+r7insight_python.egg-info/requires.txt
+r7insight_python.egg-info/top_level.txt

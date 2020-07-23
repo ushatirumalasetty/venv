@@ -1,0 +1,33 @@
+Metadata-Version: 1.2
+Name: django-fine-uploader-s3
+Version: 1.0.0
+Summary: Your project description goes here
+Home-page: https://github.com/anush0247/django-fine-uploader-s3
+Author: Aneesh Kumar
+Author-email: aneesh@cybereyelabs.io
+License: MIT
+Description: 
+        
+        
+        
+        History
+        -------
+        
+        0.1.0 (2016-10-09)
+        ++++++++++++++++++
+        
+        * First release on PyPI.
+        
+Keywords: django-fine-uploader-s3
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.10
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.7

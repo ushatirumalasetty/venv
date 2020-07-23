@@ -1,0 +1,4 @@
+CONSTANTS = {
+    "ENV_IMPL": "ENV_IMPL",
+    "ENV_MOCK": "ENV_MOCK"
+}

@@ -1,0 +1,12 @@
+/*
+ * @flow
+ */
+{% if import|length > 0 %}{{import}}{%endif%}
+{% if import_flag %}import type { IObservableArray } from 'mobx'{%endif%}
+export type {{class_name}}={
+    {% for each_field, type, is_required in fields %}{{each_field}}{%if not is_required%}?{%endif%}:{{type}}{% if not loop.last %},
+    {% endif %}{% endfor %}
+}
+{% for enum in enums %}
+export type {{enum['property_name']}}= {% for value in enum['values']%} "{{value}}"{% if not loop.last %} | {%endif%}{%endfor%}
+{% endfor %}

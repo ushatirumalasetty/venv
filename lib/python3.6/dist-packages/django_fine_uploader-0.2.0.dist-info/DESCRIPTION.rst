@@ -1,0 +1,119 @@
+=============================
+Django Fine Uploader
+=============================
+
+.. image:: https://img.shields.io/pypi/v/django-fine-uploader.svg
+    :target: https://pypi.python.org/pypi/django-fine-uploader
+
+.. image:: https://img.shields.io/pypi/l/django-fine-uploader.svg
+    :target: https://pypi.python.org/pypi/django-fine-uploader
+
+.. image:: https://img.shields.io/pypi/wheel/django-fine-uploader.svg
+    :target: https://pypi.python.org/pypi/django-fine-uploader
+
+Simple, Chunked and Concurrent uploads with Django_ + `Fine Uploader`_
+
+.. _Django: https://www.djangoproject.com
+.. _`Fine Uploader`: http://fineuploader.com
+
+This is an alpha version.
+
+We have a example_ project. Just `git clone` the django-fine-uploader repository and follow the instructions.
+
+.. _example: https://github.com/douglasmiranda/django-fine-uploader/tree/master/example
+
+Quickstart
+----------
+
+Install django_fine_uploader::
+
+    pip install django-fine-uploader
+
+Add it to your `INSTALLED_APPS`:
+
+.. code-block:: python
+
+    INSTALLED_APPS = (
+        ...
+        'django_fine_uploader.apps.DjangoFineUploaderConfig',
+        ...
+    )
+
+Add django_fine_uploader's URL patterns:
+
+.. code-block:: python
+
+    urlpatterns = [
+        ...
+        url(r'^fine-uploader/', include('django_fine_uploader.urls', namespace='django_fine_uploader')),
+        ...
+    ]
+
+And finally your html file: copy from `this gist`_. (too much html to put on our README)
+
+.. _`this gist`: https://gist.github.com/douglasmiranda/77da9c801e0cf83357ba51a639372768
+
+Features
+--------
+
+* Simple Upload
+* Chunked Upload
+* Concurrent Chunked Upload
+* `Ready to use upload endpoint`_
+* `Easy extend FineUploaderView`_ (FormView)
+* Or create your custom view and use the Django Fine Uploader handler
+
+.. _`Ready to use upload endpoint`: https://github.com/douglasmiranda/django-fine-uploader/blob/master/django_fine_uploader/fineuploader.py
+.. _`Easy extend FineUploaderView`: https://github.com/douglasmiranda/django-fine-uploader/blob/master/django_fine_uploader/views.py
+
+TODO
+----
+
+Instead of listing here, check the issues_ and projects_.
+
+.. _issues: https://github.com/douglasmiranda/django-fine-uploader/issues
+.. _projects: https://github.com/douglasmiranda/django-fine-uploader/projects
+
+Running Tests
+-------------
+
+Does the code actually work?
+
+::
+
+    source <YOURVIRTUALENV>/bin/activate
+    (myenv) $ pip install tox
+    (myenv) $ tox
+
+Credits
+-------
+
+Tools used in rendering this package:
+
+*  Cookiecutter_
+*  `cookiecutter-djangopackage`_
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`cookiecutter-djangopackage`: https://github.com/pydanny/cookiecutter-djangopackage
+
+Fineuploader: http://fineuploader.com
+
+
+
+
+History
+-------
+
+0.2.0 (2017-02-12)
+++++++++++++++++++
+
+* Now we have a `BaseFineUploader`
+* A basic planing for Beta release: https://github.com/douglasmiranda/django-fine-uploader/projects/1
+* Better info on README and more
+
+0.1.0 (2017-02-10)
+++++++++++++++++++
+
+* First release on PyPI.
+
+

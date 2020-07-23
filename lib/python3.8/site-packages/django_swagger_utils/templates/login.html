@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- source: https://github.com/reboot14/rid -->
+    <meta charset="utf-8">
+    <title>Swagger UI &rarr; Login </title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body class="body_layout">
+    <center>
+      <div class="ui grid" style="padding-top:15%;">
+	<div class="row">
+	  <div class="six wide column">
+	    &nbsp;
+	  </div>
+	  <div class="four wide column">
+	    <div class="ui piled segment blue " style="padding:7%;padding-top:0%;">
+	      <form method="post" action="{% url 'django_swagger_utils:login' %}">
+		{% csrf_token %}
+		{% if form.errors %}
+		<span class="ui error message">Invalid Username / Password </span>
+		{% endif %}
+
+		<div class="ui blue dividing header">
+		  <i class="sign in icon"></i>
+		  <div class="content">
+		    Login
+		  </div>
+		</div>
+		<div class="ui form small">
+		  <div class="six field">
+		    <div class="field small ui labeled input ">
+		      <div class="ui label"> <i class="user icon"></i></div>
+		      <input type="text" name="username" placeholder="username">
+		    </div>
+		    <div class="field small ui labeled input">
+		      <div class="ui label"> <i class="key icon"></i></div>
+		      <input type="password" name="password" placeholder="my password">
+		    </div>
+		    <div class="field ">
+		      <button type="submit" class=" blue fluid ui button small"><i class="angle double right icon"></i> Continue to Swagger UI</button>
+		    </div>
+		  </div>
+		</div>
+		<input type="hidden" name="next" value="{{ next }}" />
+	      </form>
+	    </div>
+	  </div>
+	  <div class="six wide column">
+	    &nbsp;
+	  </div>
+
+	</div>
+	<div class="row">
+	  <div class="sixteen wide column" style="text-align:center;">
+
+	  </div>
+	</div>
+      </div>
+
+    </center>
+
+  </body>
+</html>

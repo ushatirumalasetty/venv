@@ -1,0 +1,18 @@
+from oauth2_provider.contrib.rest_framework import OAuth2Authentication
+from rest_framework.authentication import BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+{% for import_str in import_strs %}
+{{ import_str }}
+{% endfor %}
+
+from django_swagger_utils.drf_server.utils.server_gen.is_valid_api_key import IsValidAPIKey
+
+SECURITY_DEFINITIONS = {
+{% for decorator in security_definitions %}
+    "{{ decorator.SECURITY_NAME }}" : {
+        "TYPE": "{{decorator.TYPE}}",
+        "AUTHENTICATION_CLASSES": [{{ decorator.AUTHENTICATION_CLASSES | join(', ') }}],
+        "PERMISSIONS_REQUIRED": [{{ decorator.PERMISSIONS_REQUIRED | join(', ') }}],
+        "SCOPES_REQUIRED": [{{ decorator.SCOPES_REQUIRED | join(', ') }}]
+    }{% if not loop.last %},{% endif %}{% endfor %}
+}
